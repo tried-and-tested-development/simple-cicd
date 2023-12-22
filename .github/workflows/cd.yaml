@@ -1,0 +1,36 @@
+name: Continious Delivery
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  create-version-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create build number tag.
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git checkout master
+          git tag -fa "v${{github.run_number}}" -m "Build ${{github.run_number}}"
+          git push origin master --tags --force
+
+  update-latest-tag:
+    needs: create-version-tag # Only create latest once version tag has been created.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create OR Replace "latest" tag.
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git checkout v${{github.run_number}}
+          git tag -fa "latest" -m "Latest and Greatest"
+          git push origin master --tags --force
