@@ -16,9 +16,9 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git checkout master
+          git checkout main
           git tag -fa "v${{github.run_number}}" -m "Build ${{github.run_number}}"
-          git push origin master --tags --force
+          git push origin main --tags --force
 
   update-latest-tag:
     needs: create-version-tag # Only create latest once version tag has been created.
@@ -33,4 +33,4 @@ jobs:
           git config user.email "<>"
           git checkout v${{github.run_number}}
           git tag -fa "latest" -m "Latest and Greatest"
-          git push origin master --tags --force
+          git push origin main --tags --force

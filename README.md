@@ -29,7 +29,7 @@ dbt-<adaptor> init
 Go to your DbtCloud projects pre-production environment.
 * Select custom branch.
 * Set this to `main`. (This is the name of the default branch in your repo.)
-![image](https://github.com/tried-and-tested-development/simple-cicd/assets/12293369/c9aa033f-0b83-4ac0-b6a0-5265fbf42f7c)
+![image](https://github.com/tried-and-tested-development/simple-dbtcloud-cd/assets/12293369/cf5c0053-b728-4aa7-abbf-53fef1368a5f)
 
 ## Setup your DbtCloud Production Environment.
 Go to your DbtCloud projects production environment.
