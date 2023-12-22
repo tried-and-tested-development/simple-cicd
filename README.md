@@ -1,4 +1,4 @@
-# Simple-cicd
+# Simple-cicd for DBT Cloud
 This repo is an example of a simple CICD model that can be used for many use cases
 
 # Setup your DBT project if one does not exist
